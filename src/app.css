@@ -1,0 +1,9 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+:root {
+	--font-body: Inter, -apple-system, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+	font-family: var(--font-body);
+}
