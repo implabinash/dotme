@@ -26,7 +26,7 @@
 				<div>
 					<p class="text-lg text-gray-700">✨ Secured by Polkadot</p>
 					<h1 class="mt-4 text-4xl font-bold text-black sm:text-6xl xl:text-8xl">
-						Support your favorite creators.
+						Support your favourite creators.
 					</h1>
 					<p class="mt-4 text-base text-black sm:text-xl lg:mt-6">
 						Send DOT tips straight to creators. A direct way to say thanks. <br

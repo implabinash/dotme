@@ -41,7 +41,8 @@
 
 		(async () => {
 			// wss://polkadot.dotters.network
-			const wsProvider = new WsProvider('wss://westend.dotters.network');
+			// wss://westend.dotters.network
+			const wsProvider = new WsProvider('wss://polkadot.dotters.network');
 			api = await ApiPromise.create({ provider: wsProvider });
 		})();
 	});
