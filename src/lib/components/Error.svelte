@@ -1,4 +1,7 @@
 <script lang="ts">
+	import { Confetti } from 'svelte-confetti';
+	import { fade } from 'svelte/transition';
+
 	let { error = '', message = '' } = $props();
 </script>
 
@@ -23,3 +26,20 @@
 	</svg>
 	<span>{error ? error : message}</span>
 </div>
+
+{#if message}
+	<div
+		transition:fade={{ duration: 1000 }}
+		class="fixed -top-5 left-0 flex h-dvh w-dvw justify-center overflow-hidden"
+	>
+		<Confetti
+			x={[-5, 5]}
+			y={[0, 0.1]}
+			delay={[100, 5000]}
+			infinite
+			duration="5000"
+			amount="400"
+			fallDistance="100vh"
+		/>
+	</div>
+{/if}

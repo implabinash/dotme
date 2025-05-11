@@ -5,6 +5,7 @@
 	import type { Signer } from '@polkadot/api/types';
 	import { connectWallet, sendDot } from '$lib/utils/wallet';
 	import Error from './Error.svelte';
+	import Loader from './Loader.svelte';
 
 	let { username, isPreview = false } = $props();
 
@@ -95,67 +96,71 @@
 <div
 	class="mb-4 flex w-full flex-col items-center justify-center gap-5 rounded-3xl border border-gray-500 bg-white p-5 text-center md:p-10"
 >
-	<div class="h-24 w-24 rounded-full border border-gray-700">
-		<img
-			src={`/src/lib/images/${photoId}.webp`}
-			alt="pfp"
-			class="p-2.5"
-			height="96px"
-			width="96px"
-		/>
-	</div>
+	{#if !name}
+		<Loader />
+	{:else}
+		<div class="h-24 w-24 rounded-full border border-gray-700">
+			<img
+				src={`/src/lib/images/${photoId}.webp`}
+				alt="pfp"
+				class="p-2.5"
+				height="96px"
+				width="96px"
+			/>
+		</div>
 
-	<h2 class="text-2xl font-bold">{name}</h2>
+		<h2 class="text-2xl font-bold">{name}</h2>
 
-	<p class="mb-5">
-		{about}
-	</p>
+		<p class="mb-5">
+			{about}
+		</p>
 
-	<div class="flex w-full flex-col gap-5 text-lg font-bold">
-		{#if !isPreview && !fromAddress}
-			<div>
-				<button
-					class="w-full rounded-full bg-yellow-300 p-2 font-bold text-black transition duration-300 hover:bg-yellow-400 active:scale-95"
-					onclick={handleConnect}
-					type="button">Connect Wallet</button
-				>
-			</div>
-		{:else}
-			<div class="flex items-center justify-center gap-5">
-				<button
-					class="w-1/2 rounded-full bg-yellow-300 py-7 transition duration-300 hover:bg-yellow-400 active:scale-95"
-					onclick={() => {
-						handleSend(1);
-					}}>1 DOT</button
-				>
-				<button
-					class="w-1/2 rounded-full bg-yellow-300 py-7 transition duration-300 hover:bg-yellow-400 active:scale-95"
-					onclick={() => {
-						handleSend(5);
-					}}>5 DOT</button
-				>
-			</div>
-			<div class="flex items-center justify-center gap-5">
-				<button
-					class="w-1/2 rounded-full bg-yellow-300 py-7 transition duration-300 hover:bg-yellow-400 active:scale-95"
-					onclick={() => {
-						handleSend(10);
-					}}>10 DOT</button
-				>
-				<button
-					class="w-1/2 rounded-full bg-yellow-300 py-7 transition duration-300 hover:bg-yellow-400 active:scale-95"
-					onclick={() => {
-						handleSend(20);
-					}}>20 DOT</button
-				>
-			</div>
-		{/if}
-	</div>
+		<div class="flex w-full flex-col gap-5 text-lg font-bold">
+			{#if !isPreview && !fromAddress}
+				<div>
+					<button
+						class="w-full cursor-pointer rounded-full bg-yellow-300 p-2 font-bold text-black transition duration-300 hover:bg-yellow-400 active:scale-95"
+						onclick={handleConnect}
+						type="button">Connect Wallet</button
+					>
+				</div>
+			{:else}
+				<div class="flex items-center justify-center gap-5">
+					<button
+						class="w-1/2 cursor-pointer rounded-full bg-yellow-300 py-7 transition duration-300 hover:bg-yellow-400 active:scale-95"
+						onclick={() => {
+							handleSend(1);
+						}}>1 DOT</button
+					>
+					<button
+						class="w-1/2 cursor-pointer rounded-full bg-yellow-300 py-7 transition duration-300 hover:bg-yellow-400 active:scale-95"
+						onclick={() => {
+							handleSend(5);
+						}}>5 DOT</button
+					>
+				</div>
+				<div class="flex items-center justify-center gap-5">
+					<button
+						class="w-1/2 cursor-pointer rounded-full bg-yellow-300 py-7 transition duration-300 hover:bg-yellow-400 active:scale-95"
+						onclick={() => {
+							handleSend(10);
+						}}>10 DOT</button
+					>
+					<button
+						class="w-1/2 cursor-pointer rounded-full bg-yellow-300 py-7 transition duration-300 hover:bg-yellow-400 active:scale-95"
+						onclick={() => {
+							handleSend(20);
+						}}>20 DOT</button
+					>
+				</div>
+			{/if}
+		</div>
 
-	<div class="mt-5 w-full text-left">
-		<p>For custom amount:</p>
-		<Copy data={toAddress} />
-	</div>
+		<div class="mt-5 w-full text-left">
+			<p>For custom amount:</p>
+			<Copy data={toAddress} />
+		</div>
+	{/if}
 </div>
 
 {#if error || message}

@@ -11,7 +11,7 @@
 				<a
 					href="/join"
 					title=""
-					class="items-center justify-center rounded-full bg-black px-5 py-2.5 text-base font-semibold text-white transition duration-300 hover:bg-yellow-300 hover:text-black focus:bg-yellow-300 focus:text-black active:scale-95 lg:inline-flex"
+					class="cursor-pointer items-center justify-center rounded-full bg-black px-5 py-2.5 text-base font-semibold text-white transition duration-300 hover:bg-yellow-300 hover:text-black focus:bg-yellow-300 focus:text-black active:scale-95 lg:inline-flex"
 					role="button"
 				>
 					Join Now
@@ -37,7 +37,7 @@
 					<a
 						href="/join"
 						title=""
-						class="mt-8 inline-flex items-center rounded-full bg-yellow-300 px-6 py-4 font-semibold text-black transition duration-300 hover:bg-yellow-400 focus:bg-yellow-400 active:scale-95 lg:mt-10"
+						class="mt-8 inline-flex cursor-pointer items-center rounded-full bg-yellow-300 px-6 py-4 font-semibold text-black transition duration-300 hover:bg-yellow-400 focus:bg-yellow-400 active:scale-95 lg:mt-10"
 						role="button"
 					>
 						Join for free

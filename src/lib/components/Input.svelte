@@ -44,12 +44,17 @@
 	async function handleGenerate() {
 		await checkUsernameAvailable();
 
-		if (!name || !username || !userAddress || !about || !isAvailable) {
+		if (about.length > 100) {
+			error = 'About must be less than 100 chars.';
 			return;
 		}
 
-		if (about.length > 100) {
-			error = 'About must be less than 100 chars.';
+		if (!name || !username || !about || !isAvailable) {
+			return;
+		}
+
+		if (!userAddress) {
+			error = 'Please connect your wallet.';
 			return;
 		}
 
@@ -112,7 +117,7 @@
 					bind:value={username}
 				/>
 				<button
-					class="w-[28%] rounded-lg bg-yellow-300 py-2 font-semibold transition duration-300 hover:bg-yellow-400 active:scale-95"
+					class="w-[28%] cursor-pointer rounded-lg bg-yellow-300 py-2 font-semibold transition duration-300 hover:bg-yellow-400 active:scale-95"
 					type="button"
 					onclick={checkUsernameAvailable}>Check</button
 				>
@@ -142,7 +147,7 @@
 				<Copy data={userAddress} />
 			{:else}
 				<button
-					class="w-full rounded-full bg-yellow-300 p-2 font-bold text-black transition duration-300 hover:bg-yellow-400 active:scale-95"
+					class="w-full cursor-pointer rounded-full bg-yellow-300 p-2 font-bold text-black transition duration-300 hover:bg-yellow-400 active:scale-95"
 					onclick={handleConnect}
 					type="button">Connect Wallet</button
 				>
@@ -150,7 +155,7 @@
 		</div>
 		<button
 			type="submit"
-			class="rounded-full bg-black p-2 text-white transition duration-300 hover:bg-gray-800 active:scale-95"
+			class="cursor-pointer rounded-full bg-black p-2 text-white transition duration-300 hover:bg-gray-800 active:scale-95"
 			>Generate</button
 		>
 		<p class="text-center text-xs text-gray-500">

@@ -2,6 +2,7 @@
 	import { page } from '$app/state';
 	import Pagenotfound from '$lib/components/Pagenotfound.svelte';
 	import Preview from '$lib/components/Preview.svelte';
+	import Loader from '$lib/components/Loader.svelte';
 	import { onMount } from 'svelte';
 
 	let username = page.params.username;
@@ -33,10 +34,14 @@
 
 <main class="relative flex h-screen w-screen items-center justify-center bg-[#FCF8F1]">
 	<div class="mx-auto h-full p-10 md:w-[70%] xl:w-[40%]">
-		{#if !isAvailable}
+		{#if isAvailable === false}
 			<Preview {username} />
-		{:else}
+		{:else if isAvailable === true}
 			<Pagenotfound />
+		{:else}
+			<div class="flex items-center justify-center">
+				<Loader />
+			</div>
 		{/if}
 	</div>
 </main>

@@ -1,9 +1,11 @@
 <script lang="ts">
 	import { Copy, CheckCheck } from '@lucide/svelte';
+	import Error from './Error.svelte';
 
 	let { data } = $props();
 
 	let isCopied = $state(false);
+	let error = $state('');
 
 	async function copyToClipboard() {
 		try {
@@ -11,7 +13,7 @@
 			isCopied = true;
 			setTimeout(() => (isCopied = false), 1500);
 		} catch (err) {
-			console.error('Copy failed', err);
+			error = 'Copy failed: ' + err;
 		}
 	}
 </script>
@@ -22,7 +24,7 @@
 	<span class="w-[90%] overflow-hidden">{data}</span>
 
 	<button
-		class="text-black transition duration-300 hover:text-gray-500 active:rotate-45"
+		class="cursor-pointer text-black transition duration-300 hover:text-gray-500 active:rotate-45"
 		onclick={copyToClipboard}
 		title="Copy to clipboard"
 		type="button"
@@ -34,3 +36,7 @@
 		{/if}
 	</button>
 </div>
+
+{#if error}
+	<Error {error} />
+{/if}
