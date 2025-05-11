@@ -4,7 +4,7 @@
 			<div class="flex h-16 items-center justify-between lg:h-20">
 				<div class="flex-shrink-0">
 					<a href="/" title="" class="flex">
-						<img height="75px" width="75px" src="src/lib/images/logo.png" alt="Dotme Logo" />
+						<img height="75px" width="75px" src="/images/logo.png" alt="Dotme Logo" />
 					</a>
 				</div>
 
@@ -61,7 +61,7 @@
 				</div>
 
 				<div>
-					<img class="w-full" src="src/lib/images/hero-img.webp" alt="" />
+					<img class="w-full" src="/images/hero-img.webp" alt="" />
 				</div>
 			</div>
 		</div>

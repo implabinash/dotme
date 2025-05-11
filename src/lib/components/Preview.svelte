@@ -100,13 +100,7 @@
 		<Loader />
 	{:else}
 		<div class="h-24 w-24 rounded-full border border-gray-700">
-			<img
-				src={`/src/lib/images/${photoId}.webp`}
-				alt="pfp"
-				class="p-2.5"
-				height="96px"
-				width="96px"
-			/>
+			<img src={`/images/${photoId}.webp`} alt="pfp" class="p-2.5" height="96px" width="96px" />
 		</div>
 
 		<h2 class="text-2xl font-bold">{name}</h2>
