@@ -85,7 +85,7 @@
 <div
 	class="w-[90%] rounded-3xl border border-gray-700 bg-white p-7 md:w-[75%] md:p-10 lg:w-[60%] xl:w-[35%]"
 >
-	<img src="src/lib/images/logo.png" alt="log" height="100px" width="100px" class="mx-auto" />
+	<img src="/src/lib/images/logo.png" alt="log" height="100px" width="100px" class="mx-auto" />
 
 	<div class="mb-6 space-y-2 text-center">
 		<p class="text-2xl font-bold">Welcom to Dotme</p>
