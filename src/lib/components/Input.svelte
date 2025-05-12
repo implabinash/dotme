@@ -114,7 +114,10 @@
 					placeholder="username"
 					class="w-[70%] rounded-lg px-4 py-2"
 					required
-					bind:value={username}
+					value={username}
+					oninput={(e) => {
+						username = e.currentTarget.value.toLowerCase();
+					}}
 				/>
 				<button
 					class="w-[28%] cursor-pointer rounded-lg bg-yellow-300 py-2 font-semibold transition duration-300 hover:bg-yellow-400 active:scale-95"

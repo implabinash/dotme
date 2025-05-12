@@ -6,7 +6,7 @@
 	let username = $state('');
 	let isJoined = $state();
 
-	let url = $derived(`https://dotme-two.vercel.app/u/${username}`);
+	let url = $derived(`https://dotme-two.vercel.app/u/${username.toLowerCase()}`);
 
 	function setJoined(newUsername: string) {
 		username = newUsername;
