@@ -68,6 +68,8 @@
 			return;
 		}
 
+		username = username.replace(/\s/g, '').trim();
+
 		const res = await fetch('/api/insert-user', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
@@ -126,7 +128,7 @@
 					required
 					value={username}
 					oninput={(e) => {
-						username = e.currentTarget.value.toLowerCase();
+						username = e.currentTarget.value.toLowerCase().replace(/\s/g, '');
 					}}
 				/>
 				<button
