@@ -44,12 +44,22 @@
 	async function handleGenerate() {
 		await checkUsernameAvailable();
 
-		if (about.length > 100) {
-			error = 'About must be less than 100 chars.';
+		if (!name || !username || !about || !isAvailable) {
 			return;
 		}
 
-		if (!name || !username || !about || !isAvailable) {
+		if (name.length > 50) {
+			error = 'Name must be less than 50 chars.';
+			return;
+		}
+
+		if (username.length > 20) {
+			error = 'Username must be less than 20 chars.';
+			return;
+		}
+
+		if (about.length > 100) {
+			error = 'About must be less than 100 chars.';
 			return;
 		}
 
@@ -69,7 +79,7 @@
 		if (result.success) {
 			onjoin(username);
 		} else {
-			error = 'Something went wrong.';
+			error = 'Something went wrong. Try again!';
 		}
 	}
 
